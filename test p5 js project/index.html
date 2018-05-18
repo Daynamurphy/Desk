@@ -1,0 +1,83 @@
+<html>
+<head>
+  <script src="p5.js">
+  </script>
+  <script>
+  var cursorRed  // Declare variable 'img'.
+var images = [
+  "stucky.jpg",
+  "ny poster.jpg",
+  "cowgirl black and red on white.jpg",
+  "face shit .jpg",
+  "cowgirl a4.jpg",
+  //"cowgirl orange teeblackbg.png",
+  "buy.jpg",
+  //"DESK BOOK.png",
+  "desk2.jpg","desk3.jpg",
+  "desk5.jpg",
+  "deskposters.jpg",
+  "cloudsfor portf .jpg",
+  "free will3 for pdf.jpg",
+  "intertwined.jpg",
+  "some shit.jpg",
+  "desk 7 poster.jpg",
+"deskposters more2",
+"desk sketch.png",
+"free will for pdf.jpg",
+"free will part 2 for pdf.jpg",
+"head shot sculprtis.png",
+"how much time i have left.jpg",
+"pissin about 2.jpg",
+"how i feel rn .jpg",
+"blue steel metal.jpg",
+"digitally trapped aesthetic posterportf.jpg",
+"comic falling asleep.jpg",
+"do more.jpg",
+"Bold Yellow.jpg",
+"ninja.jpg",
+"reverse cowgirl colour.jpg",
+"shit for bif.jpg"
+]
+  var loadedImages = []
+  var currentX
+  var currentY
+  cursorRed = loadImage("red cross outline.jpg")
+function setup() {
+  cursor(cursorRed,32,32);
+  //noCursor();
+  createCanvas(1900, 1000);
+  //background(0,0,255); BLUE BACKGROUND
+  //Orange background (below) //background(255,105,0);
+  for(var i =0;i< images.length;i++){
+    loadedImages[i]=loadImage (images[i])
+  }
+  frameRate(10)
+  //img = loadImage("desk2.jpg");  // Load the image
+}
+function draw() {
+
+  //Draws an orange circle where mouse is
+  //stroke(255,105,0);//fill(255,105,0); //ellipse(mouseX,mouseY,30,30);
+if(mouseX!=currentX || mouseY!=currentY){
+  var randomImage = loadedImages[Math.floor(Math.random()*loadedImages.length)];
+  // Displays the image at its actual size at point (0,0)
+  //image(img, 0, 0);
+  // Displays the image at point (0, height/2) at half size
+  var imageX = mouseX-randomImage.width/16
+  var imageY = mouseY-randomImage.height/16
+  image(randomImage, imageX, imageY, randomImage.width/8, randomImage.height/8);
+
+  currentX = mouseX
+  currentY = mouseY
+}
+}
+function mousePressed(){
+  redraw();
+
+
+}
+</script>
+</head>
+<body>
+</body>
+</html>
